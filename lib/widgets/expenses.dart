@@ -28,6 +28,12 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+  }
+
   final List<Expense> _registeredExpenses = [
     Expense(
       title: 'Cheeseburger',
@@ -57,7 +63,12 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           Text("Chart"),
-          Expanded(child: ExpensesList(expenses: _registeredExpenses)),
+          Expanded(
+            child: ExpensesList(
+              onRemoveExpense: _removeExpense,
+              expenses: _registeredExpenses,
+            ),
+          ),
         ],
       ),
     );
