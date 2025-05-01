@@ -10,17 +10,14 @@ class ExpenseItem extends StatelessWidget {
       Category.food: Icons.lunch_dining,
       Category.travel: Icons.flight_takeoff,
       Category.leisure: Icons.movie,
-      Category.work: Icons.work
+      Category.work: Icons.work,
     };
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 16,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
           children: [
-            Text(expense.title),
+            Text(expense.title, style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 4),
             Row(
               children: [
@@ -30,11 +27,11 @@ class ExpenseItem extends StatelessWidget {
                   children: [
                     Icon(categoryIcons[expense.category]),
                     const SizedBox(width: 8),
-                    Text(expense.formattedDate)
+                    Text(expense.formattedDate),
                   ],
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
